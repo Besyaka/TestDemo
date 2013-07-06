@@ -151,7 +151,7 @@ void BaseApplication::createSound(void)
  
                 
 		unsigned int audioId;
-		soundMgr->loadAudio( "echo.mp3", &audioId, true);
+		soundMgr->loadAudio( "echo.wav", &audioId, true);
 		soundMgr->playAudio( audioId, true );
 }
 //-------------------------------------------------------------------------------------
@@ -249,8 +249,6 @@ bool BaseApplication::setup(void)
     createScene();
 
     createFrameListener();
-
-	createSound();
 
     return true;
 };
