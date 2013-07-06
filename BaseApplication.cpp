@@ -15,6 +15,7 @@ This source file is part of the
 -----------------------------------------------------------------------------
 */
 #include "BaseApplication.h"
+#include "SoundManager.h"
 
 //-------------------------------------------------------------------------------------
 BaseApplication::BaseApplication(void)
@@ -138,6 +139,22 @@ void BaseApplication::createFrameListener(void)
     mRoot->addFrameListener(this);
 }
 //-------------------------------------------------------------------------------------
+void BaseApplication::createSound(void)
+{
+		SoundManager * soundMgr;
+		soundMgr = SoundManager::createManager();
+ 
+		std::cout << soundMgr->listAvailableDevices();
+ 
+		soundMgr->init();
+		soundMgr->setAudioPath( (char*) ".\\" );
+ 
+                
+		unsigned int audioId;
+		soundMgr->loadAudio( "echo.mp3", &audioId, true);
+		soundMgr->playAudio( audioId, true );
+}
+//-------------------------------------------------------------------------------------
 void BaseApplication::destroyScene(void)
 {
 }
@@ -232,6 +249,8 @@ bool BaseApplication::setup(void)
     createScene();
 
     createFrameListener();
+
+	createSound();
 
     return true;
 };

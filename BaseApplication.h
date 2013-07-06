@@ -34,6 +34,8 @@ This source file is part of the
 #include <SdkTrays.h>
 #include <SdkCameraMan.h>
 
+
+
 class BaseApplication : public Ogre::FrameListener, public Ogre::WindowEventListener, public OIS::KeyListener, public OIS::MouseListener, OgreBites::SdkTrayListener
 {
 public:
@@ -50,6 +52,7 @@ protected:
     virtual void createFrameListener(void);
     virtual void createScene(void) = 0; // Override me!
     virtual void destroyScene(void);
+	virtual void createSound(void);
     virtual void createViewports(void);
     virtual void setupResources(void);
     virtual void createResourceListener(void);
